@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .basic{
+      height: 200px;
+      width: 100px;
+      background-color: white;
+      border: 1px solid black;
+    }
+    .happy{
+      background-color: orange;
+    }
+    .sad{
+      background-color: grey;
+    }
+    .normal{
+      background-color: chartreuse;
+    }
+    .at1{
+      font-size: 30px;
+    }
+    .at2{
+      text-shadow: 1em,1em,gold;
+    }
+    .at3{
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <div class="basic" :class="mood" @click="changeMood">text</div>
+    <br><br>
+    <div class="basic" :class="classArr">text</div>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        mood: 'normal',
+        classArr:['at1','at2','at3']
+      },
+      methods: {
+        changeMood(){
+          const arr =['happy','sad','normal']
+          const index=Math.floor(Math.random()*3)
+          this.mood=arr[index]
+        }
+      },
+    })
+  </script>
+</body>
+</html>
