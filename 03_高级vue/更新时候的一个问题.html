@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <button @click="updateMei">更新马冬梅的信息 </button>
+    <ul>
+      <li v-for="(p,index) of persons" :key="p.id">
+        {{p.name}}--{{p.age}}--{{p.sex}}
+      </li>
+    </ul>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        persons: [
+          {id:'001',name:'马冬梅',age:35, sex:'女'},
+          {id:'002',name:'周冬雨',age:28, sex:'女'},
+          {id:'003',name:'周杰伦',age:38, sex:'男'},
+          {id:'004',name:'温兆伦',age:48, sex:'男'},
+        ]
+      },
+      methods: {
+        updateMei(){
+          // 有效
+          // this.persons[0].name='马老师',
+          // this.persons[0].age=56,
+          // this.persons[0].sex='男'
+          this.persons[0]={id:'001',name:'马老师',age:56, sex:'男'}
+        }
+      }
+    })
+  </script>
+</body>
+</html>
