@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <h1>hello,world,{{name.toUpperCase()}},{{Date.now()}}</h1>
+    <button>点我改变</button>
+  </div>
+  <script>
+    Vue.config.productionTip=false
+    new Vue({
+      el:'#root',
+      data: {
+        'name':'zhangsan'
+      }
+    })
+  </script>
+</body>
+</html>
