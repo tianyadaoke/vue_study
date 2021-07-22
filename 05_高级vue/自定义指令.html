@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <h2>当前的n值是：<span v-text="n"></span> </h2>
+    <h2>放大10倍后的n的值是：<span v-big="n"></span> </h2>
+    <button @click="n++">n++</button>
+    <hr>
+    <input type="text" v-fbind:value="n">
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    Vue.config.productionTip = false
+    const app = new Vue({
+      el: '#app',
+      data: {
+        n: 1
+      },
+      directives: {
+        big(element, binding) {
+          // big函数何时会被调用，1.指令与元素成功绑定的时候 2.指令所在的模板被重新解析时
+          element.innerText = binding.value * 10
+          console.log(element, binding)
+        },
+        fbind: {
+          bind(element, binding) {
+           element.value=binding.value
+          },
+          inserted(element, binding){
+            element.focus()
+          },
+          update(element, binding){
+            element.value=binding.value
+            element.focus()
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
