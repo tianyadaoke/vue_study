@@ -1,17 +1,18 @@
 <template>
   <div>
-    <Student/>
-    <hr>
-    <School/>
+    <MyHeader/>
+    <MyList/>
+    <MyFooter/>
   </div>
 </template>
 
 <script>
-import Student from './components/Student'
-import School from './components/School'
+import MyHeader from './components/MyHeader.vue'
+import MyList from './components/MyList.vue'
+import MyFooter from './components/MyFooter.vue'
 export default {
   name: 'App',
-  components:{Student,School},
+  components:{MyHeader,MyList,MyFooter}
 }
 </script>
 

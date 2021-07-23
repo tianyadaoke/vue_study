@@ -1,13 +1,11 @@
 <template>
-  <div >
+  <div class="test">
     <h2> 学生姓名：{{name}}</h2> <br>
-    <h2> 学生性别：{{sex}}</h2><br>
-    <input type="text" v-fbind:value="name">
+    <h2 class="atguigu"> 学生性别：{{sex}}</h2><br>
   </div>
 </template>
 
 <script>
-// 混入
 export default {
   name:'Student',
   data() {
@@ -18,3 +16,11 @@ export default {
   },
 }
 </script>
+<style lang="less" scoped>
+  .test{
+    background-color:orange;
+    .atguigu{
+      font-size: 40px;
+    }
+  }
+</style>
