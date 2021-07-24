@@ -1,8 +1,8 @@
 <template>
   <div>
     <MyHeader :addTodo="addTodo"/>
-    <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
-    <MyFooter :todos="todos" :checkAllTodo="checkAllTodo"/>
+    <MyList :todos="todos" />
+    <MyFooter/>
   </div>
 </template>
 
@@ -25,23 +25,8 @@ export default {
   methods: {
     addTodo(todoObj){
       this.todos.unshift(todoObj)
-    },
-    checkTodo(id){
-      this.todos.forEach(todo=>{
-        if(todo.id==id){
-          todo.done=!todo.done
-        }
-      })
-    },
-    deleteTodo(id){
-      this.todos=this.todos.filter(todo=>todo.id!=id)
-    },
-    checkAllTodo(done){
-      this.todos.forEach(todo=>{
-          todo.done=done
-      })
     }
-  },
+  }
 }
 </script>
 
