@@ -1,8 +1,8 @@
 <template>
   <div>
-    <MyHeader @addTodo="addTodo"/>
-    <MyList :todos="todos" />
-    <MyFooter :todos="todos" @checkAllTodo="checkAllTodo" @clearAllTodo="clearAllTodo"/>
+    <MyHeader :addTodo="addTodo"/>
+    <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
+    <MyFooter :todos="todos" :checkAllTodo="checkAllTodo" :clearAllTodo="clearAllTodo"/>
   </div>
 </template>
 
@@ -48,15 +48,7 @@ export default {
         localStorage.setItem('todos',JSON.stringify(val))
       }
     }
-  },
-  mounted() {
-    this.$bus.$on('checkTodo',this.checkTodo)
-    this.$bus.$on('deleteTodo',this.deleteTodo)
-  },
-  beforeDestroy() {
-    this.$bus.$off('checkTodo')
-    this.$bus.$off('deleteTodo')
-  },
+  }
 }
 </script>
 

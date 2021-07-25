@@ -19,10 +19,11 @@ export default {
       // console.log(event.target.value) 将用户的输入包装成一个todo对象
       const todoObj={id:nanoid(),title:this.title,done:false}
       //console.log(todoObj)
-      this.$emit('addTodo',todoObj)
+      this.addTodo(todoObj)
       this.title=''
     }
   },
+  props:['addTodo']
 }
 </script>
 

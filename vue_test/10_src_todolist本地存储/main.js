@@ -5,8 +5,5 @@ Vue.config.productionTip = false
 // Vue.use(plugins)
 new Vue({
   el: '#app',
-  render: h => h(App),
-  beforeCreate(){
-    Vue.prototype.$bus=this
-  }
+  render: h => h(App)
 })
