@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import pubsub from 'pubsub-js'
 import MyHeader from './components/MyHeader.vue'
 import MyList from './components/MyList.vue'
 import MyFooter from './components/MyFooter.vue'
@@ -30,14 +29,7 @@ export default {
         }
       })
     },
-     updateTodo(id,title){
-      this.todos.forEach(todo=>{
-        if(todo.id==id){
-          todo.title=title
-        }
-      })
-    },
-    deleteTodo(_,id){
+    deleteTodo(id){
       this.todos=this.todos.filter(todo=>todo.id!=id)
     },
     checkAllTodo(done){
@@ -59,15 +51,11 @@ export default {
   },
   mounted() {
     this.$bus.$on('checkTodo',this.checkTodo)
-    // this.$bus.$on('deleteTodo',this.deleteTodo)
-    this.pubId=pubsub.subscribe('deleteTodo',this.deleteTodo)
-     this.$bus.$on('updateTodo',this.updateTodo)
+    this.$bus.$on('deleteTodo',this.deleteTodo)
   },
   beforeDestroy() {
     this.$bus.$off('checkTodo')
-    // this.$bus.$off('deleteTodo')
-    pubsub.unsubscribe(this.pubId)
-     this.$bus.$off('updateTodo')
+    this.$bus.$off('deleteTodo')
   },
 }
 </script>
