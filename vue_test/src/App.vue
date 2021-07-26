@@ -1,73 +1,24 @@
 <template>
   <div>
-    <MyHeader @addTodo="addTodo"/>
-    <MyList :todos="todos" />
-    <MyFooter :todos="todos" @checkAllTodo="checkAllTodo" @clearAllTodo="clearAllTodo"/>
+    <button @click="getStudents">获取学生信息</button>
   </div>
 </template>
 
 <script>
-import pubsub from 'pubsub-js'
-import MyHeader from './components/MyHeader.vue'
-import MyList from './components/MyList.vue'
-import MyFooter from './components/MyFooter.vue'
+import axios from 'axios'
 export default {
   name: 'App',
-  components:{MyHeader,MyList,MyFooter},
-    data() {
-    return {
-      todos:JSON.parse(localStorage.getItem('todos'))||[]
-    }
-  },
   methods: {
-    addTodo(todoObj){
-      this.todos.unshift(todoObj)
-    },
-    checkTodo(id){
-      this.todos.forEach(todo=>{
-        if(todo.id==id){
-          todo.done=!todo.done
+    getStudents(){
+      axios.get('http://localhost:5000/students').then(
+        response=>{
+          console.log("请求成功了",response.data)
+        },
+        error=>{
+          console.log("请求失败了",error.message)
         }
-      })
-    },
-     updateTodo(id,title){
-      this.todos.forEach(todo=>{
-        if(todo.id==id){
-          todo.title=title
-        }
-      })
-    },
-    deleteTodo(_,id){
-      this.todos=this.todos.filter(todo=>todo.id!=id)
-    },
-    checkAllTodo(done){
-      this.todos.forEach(todo=>{
-          todo.done=done
-      })
-    },
-    clearAllTodo(){
-      this.todos = this.todos.filter(todo=> !todo.done)
+      )
     }
-  },
-  watch:{
-    todos:{
-      deep:true,
-      handler(val){
-        localStorage.setItem('todos',JSON.stringify(val))
-      }
-    }
-  },
-  mounted() {
-    this.$bus.$on('checkTodo',this.checkTodo)
-    // this.$bus.$on('deleteTodo',this.deleteTodo)
-    this.pubId=pubsub.subscribe('deleteTodo',this.deleteTodo)
-     this.$bus.$on('updateTodo',this.updateTodo)
-  },
-  beforeDestroy() {
-    this.$bus.$off('checkTodo')
-    // this.$bus.$off('deleteTodo')
-    pubsub.unsubscribe(this.pubId)
-     this.$bus.$off('updateTodo')
   },
 }
 </script>
