@@ -4,33 +4,16 @@
       <img
         src="https://img0.baidu.com/it/u=30997815,4129215630&fm=26&fmt=auto&gp=0.jpg"
         alt=""
-        slot="center"
       />
-      <a href="http://www.google.es" slot="footer">更多美食</a>
     </Category>
     <Category title="游戏">
-      <ul slot="center">
-        <li v-for="(item, index) in games" :key="index">{{ item }}</li>
-      </ul>
-      <div class="foot" slot="footer">
-        <a href="http://www.google.es">单机游戏</a>
-        <a href="http://www.google.es">网络游戏</a>
-      </div>
+      <li v-for="(item, index) in games" :key="index">{{ item }}</li>
     </Category>
     <Category title="电影">
       <img
         src="https://img0.baidu.com/it/u=30997815,4129215630&fm=26&fmt=auto&gp=0.jpg"
         alt=""
-        slot="center"
       />
-      <template  v-slot:footer>
-        <div class="foot">
-          <a href="http://www.google.es">经典</a>
-          <a href="http://www.google.es">热门</a>
-          <a href="http://www.google.es">推荐</a>
-        </div>
-        <h4 slot="footer">欢迎前来观影</h4>
-      </template>
     </Category>
   </div>
 </template>
@@ -50,15 +33,11 @@ export default {
 };
 </script>
 <style scoped>
-.container,
-.foot {
+.container {
   display: flex;
   justify-content: space-around;
 }
-img {
+img{
   width: 100%;
-}
-h4 {
-  text-align: center;
 }
 </style>
