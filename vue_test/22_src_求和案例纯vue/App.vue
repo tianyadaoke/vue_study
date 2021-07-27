@@ -11,7 +11,6 @@ export default {
   components: { Count },
 };
 </script>
-
 <style scoped>
 .container,
 .foot {
