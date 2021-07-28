@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>当前求和为:{{$store.state.sum}}</h1>
+    <h1>当前求和为:{{sum}}</h1>
+    <h3>当前求和乘以十倍后是：{{bigSum}}</h3>
+    <h3>我在{{school}}学习{{subject}}</h3>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -21,6 +23,20 @@ export default {
       n: 1,
 
     };
+  },
+  computed:{
+    sum(){
+      return this.$store.state.sum
+    },
+    bigSum(){
+      return this.$store.getters.bigSum
+    },
+    school(){
+      return this.$store.state.school
+    },
+    subject(){
+      return this.$store.state.subject 
+    }
   },
   methods: {
     increment() {
