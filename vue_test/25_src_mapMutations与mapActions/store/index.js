@@ -3,6 +3,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const actions={
+  // add(context,value){
+  //   console.log('actions中的add被调用了')
+  //   context.commit('ADD',value)
+  // },
+  // reduce(context,value){
+  //   console.log('actions中的reduce被调用了')
+  //   context.commit('REDUCE',value)
+  // },
   addOdd(context,value){
     console.log('actions中的addOdd被调用了')
     if(context.state.sum%2){
@@ -29,10 +37,7 @@ const mutations={
 const state={
   sum: 0,
   school:'尚硅谷',
-  subject:'前端',
-  personList:[
-    {id:'001',name:'张三'}
-  ]
+  subject:'前端'
 }
 const getters={
   bigSum(state){
