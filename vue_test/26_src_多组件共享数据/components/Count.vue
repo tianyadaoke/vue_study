@@ -26,9 +26,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('countOptions',['sum', 'subject', 'school']),
-    ...mapState('personOptions',['personList']),
-    ...mapGetters('countOptions',['bigSum'])
+    ...mapState( ['sum', 'subject', 'school','personList']),
+    ...mapGetters(['bigSum'])
   },
   methods: {
     // increment() {
@@ -37,7 +36,7 @@ export default {
     // decrement() {
     //   this.$store.commit("REDUCE", this.n);
     // },
-    ...mapMutations('countOptions',{increment:'ADD',decrement:'REDUCE'}),
+    ...mapMutations({increment:'ADD',decrement:'REDUCE'}),
     // ...mapMutations(['ADD','REDUCE']),
 
     // incrementOdd() {
@@ -46,7 +45,7 @@ export default {
     // incrementWait() {
     //   this.$store.dispatch("addWait", this.n);
     // },
-    ...mapActions('countOptions',{incrementOdd:'addOdd',incrementWait:'addWait'}),
+    ...mapActions({incrementOdd:'addOdd',incrementWait:'addWait'}),
     // ...mapActions(['addOdd','addWait'])
   }
 };
