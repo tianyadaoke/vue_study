@@ -2,8 +2,8 @@
   <div>
     <Banner />
     <hr />
-    <router-link  to="/home" active-class="active">Home</router-link> <br />
-    <router-link  to="/about" active-class="active">About</router-link> <br />
+    <router-link replace to="/home" active-class="active">Home</router-link> <br />
+    <router-link replace to="/about" active-class="active">About</router-link> <br />
     <hr />
     <router-view />
   </div>

@@ -10,17 +10,15 @@
         <!-- 跳转路由to的对象写法-->
         <router-link
           :to="{
-            path: '/home/message/detail',
+            name: 'detail',
             query: {
               id: m.id,
               title: m.title,
             },
           }"
         >
-          {{ m.title }}
+          {{ m.title }} 
         </router-link>
-        <button @click="pushShow(m)">push查看</button>
-        <button @click="replaceShow(m)">replace查看</button>
       </li>
     </ul>
     <router-view></router-view>
@@ -30,26 +28,6 @@
 <script>
 export default {
   name: "message",
-  methods: {
-    pushShow(m) {
-      this.$router.push({
-        path: "/home/message/detail",
-        query: {
-          id: m.id,
-          title: m.title,
-        },
-      });
-    },
-    replaceShow(m) {
-      this.$router.replace({
-        path: "/home/message/detail",
-        query: {
-          id: m.id,
-          title: m.title,
-        },
-      });
-    },
-  },
   data() {
     return {
       messageList: [
