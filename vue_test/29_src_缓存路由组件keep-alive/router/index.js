@@ -6,22 +6,18 @@ import Message from '../pages/Message.vue'
 export default new VueRouter({
   routes:[
     {
-      name:'about',
       path:'/about',
       component: About
     },
     {
-      name:'home',
       path:'/home',
       component: Home,
       children:[
         {
-          name:'news',
           path:'news',
           component:News
         },
         {
-          name:'message',
           path:'message',
           component:Message
         }

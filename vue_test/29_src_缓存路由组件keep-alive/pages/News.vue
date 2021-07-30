@@ -11,12 +11,6 @@
 <script>
 export default {
   name:'News',
-  activated() {
-    console.log('News组件actived')
-  },
-  deactivated() {
-    console.log('News组件deactivated')
-  },
 }
 </script>
 
