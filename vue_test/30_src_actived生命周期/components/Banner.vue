@@ -1,16 +1,12 @@
 <template>
   <div>
-    <ul>
-      <li>news1</li>
-      <li>news2</li>
-      <li>news3</li>
-    </ul>
+    <h2>Router Vue demo</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name:'News'
+  name:'banner'
 }
 </script>
 

@@ -1,13 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
-    <Banner />
-    <hr />
-    <router-link  to="/home" active-class="active">Home</router-link> <br />
-    <router-link  to="/about" active-class="active">About</router-link> <br />
-    <hr />
-    <router-view />
-=======
     <button>原生按钮</button>
     <input type="text" />
     <el-row>
@@ -32,7 +24,6 @@
       <el-date-picker  type="date" placeholder="选择日期">
       </el-date-picker>
     </div>
->>>>>>> b309573bb94a824f8a81233e5018ace94006aefd
   </div>
 </template>
 
